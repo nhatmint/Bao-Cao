@@ -1,3 +1,32 @@
+<?php
+ if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['tencuaban1'];
+    $email = $_POST['email1'];
+    $sodienthoai = $_POST['sodienthoai1'];
+    $noidung = $_POST['noidung1'];
+    if(!empty($email))
+    {
+        $sql = "INSERT INTO `thongtin`(`ten`,`email,`sdt`,`nd`) VALUES('$name','$email','$sodienthoai','$noidung')";   
+        if($con->query($sql)===TRUE){
+            header("location:trangchu.php");
+        }
+        else{
+            echo 'Không thành công. Lỗi' . $connect->error;
+          }
+    }
+    else{
+        
+    }
+ }
+?>
+<?php
+   define('DB_SERVER', 'localhost');
+   define('DB_USERNAME', 'root');
+   define('DB_PASSWORD', '');
+   define('DB_DATABASE', 'blackrouge');
+   $con = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +50,7 @@
     <div class="header" id="lendau">
         <div class="header_top">
             <ul class="header_top_left_left">
-                <li class="hotro"><a href="trangchu.php">trang chủ</a></li>
+                <li class="hotro"><a href="trangchu.html">trang chủ</a></li>
                 <li class="hotro"><a href="#">giới thiệu</a></li>
                 <li><a href="#">hệ thống cửa hàng</a></li>
             </ul>
@@ -33,7 +62,7 @@
         </div>
         <div class="header_bottom" id="myHeader">
             <div class="logo">
-                <a href="trangchu.php"> <img src="./imge/logo.webp" alt=""></a>
+                <a href="trangchu.html"> <img src="./imge/logo.webp" alt=""></a>
 
             </div>
             <div class="search">
@@ -51,13 +80,13 @@
                     </a>
                 </div>
                 <div class="icon_header icon_account">
-                    <a href="dangnhap.php">
+                    <a href="dangnhap.html">
                         <i class="fa fa-user"></i>
                         <span>Tài khoản</span>
                     </a>
                 </div>
                 <div class="icon_header icon_cart">
-                    <a href="giohang.php">
+                    <a href="giohang.html">
                         <i class="fa fa-shopping-cart"></i>
                         <span>Giỏ hàng</span>
                     </a>
@@ -138,7 +167,7 @@
                 <div class="body_menu_right">
                     <div class="nguyen">
                         <h1 class="text">Tất cả sản phẩm Black Rouge</h1>
-                        <a href="tatcasanpham.php" target="_blank">Xem ngay!</a>
+                        <a href="tatcasanpham.html" target="_blank">Xem ngay!</a>
                     </div>
                 </div>
             </div>
@@ -190,14 +219,14 @@
                         </div>
                         <div class="body_middle_two_two_right_inside_bottom_body">
                             <div class="name">
-                                <input required type="text" placeholder="Tên của bạn">
+                                <input required type="text" placeholder="Tên của bạn"name= "tencuaban1">
                             </div>
                             <div class="contact">
-                                <input id="contact1" required type="text" placeholder="Email của bạn">
-                                <input id="contact2" required type="text" placeholder="Số điện thoại của bạn">
+                                <input id="contact1" required type="text" placeholder="Email của bạn"name= "email1">
+                                <input id="contact2" required type="text" placeholder="Số điện thoại của bạn"name= "sodienthoai1">
                             </div>
                             <div class="noidung">
-                                <input required type="text" placeholder="Nội dung">
+                                <input required type="text" placeholder="Nội dung"name= "noidung1">
                             </div>
                             <h2>Trang web này được bảo vệ bởi reCAPTCHA và Google <a href="#">Chính sách bảo mật</a>
                                 và <a href="#">Điều khoản dịch vụ</a> áp dụng.</h2>
