@@ -1,0 +1,42 @@
+:root {
+    --color1: #f5498b;
+    --color2: rgb(70, 68, 68);
+    --color3: #fcedf2;
+    --color4: white;
+    --color5: yellow;
+    --color6: #e41313;
+    --color7: rgb(241, 236, 236);
+    --font-family1: segoe ui;
+    --font-size1: 13px;
+    --font-size2: 20px;
+    --font-weight1: bold;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family1);
+}
+.body_thanhtoan{
+    display: flex;
+    width: 100%;
+    min-height: 500px;
+}
+.body_trai{
+    background-color: #f5498b;
+    width: 800px;
+    min-height: 500px;
+    margin-left: 250px;
+
+}
+.body_phai{
+    background-color: black;
+    width: 800px;
+    min-height: 500px;
+    margin-right: 150px;
+}
+.one img {
+    margin-top: 30px;
+    width: 200px;
+    height: 50px;
+}
